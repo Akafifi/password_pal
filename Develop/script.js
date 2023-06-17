@@ -14,6 +14,17 @@ function generatePassword(){
   if(length < 8 || length > 128){
     alert("ERROR!")
   }
+  var lowerCase = prompt("Lowercase? Y/N")
+  
+  if (lowerCase.toLowerCase() == 'y'){
+    var upperCase = prompt("Uppercase? Y/N")
+  }
+
+  
+
+  
+
+
 }
 
 // Add event listener to generate button
