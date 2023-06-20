@@ -8,16 +8,16 @@ function writePassword() {
 
   passwordText.value = password
 }
-
 function generatePassword(){
+  // Password prompts
   var passLength = prompt("Enter a password length: " )
   if(passLength < 8 || passLength > 128){
     alert("ERROR!")
+    return "Password length does not meet constraints."
   }
   var lowerCase = prompt("Lowercase? Y/N")
   
   var upperCase = prompt("Uppercase? Y/N")
-
 
   var specialChar = prompt("Special characters? Y/N?")
 
@@ -28,9 +28,9 @@ function generatePassword(){
   } else {
     var lowRange = 48
   }
-
+// Special character range (referencing ascii table)
   var highRange = 0
-  if (upperCase.toUpperCase() === 'Y' && lowerCase.toUpperCase () === 'Y') {
+  if (upperCase.toUpperCase() === 'Y' && lowerCase.toUpperCase() === 'Y') {
     highRange = 122
   } 
   else if (upperCase.toUpperCase() === 'Y' && lowerCase.toUpperCase() === 'N'){
@@ -42,7 +42,7 @@ function generatePassword(){
   else{
     highRange == 122
   }
-  
+
   for(var i=0; i < passLength; i++){
     if(upperCase.toUpperCase() === 'N' && lowerCase.toUpperCase() === 'Y'){
       var randomNum = getRandomNumber(lowRange, 64, 91, 122)
@@ -54,6 +54,8 @@ function generatePassword(){
   }
   return specialString
 }
+
+  // function to call random numbers
 
 function getRandomNumber(min1, max1, min2, max2) {
   var random = Math.floor(Math.random() * 2);
@@ -67,20 +69,3 @@ function getRandomNumber(min1, max1, min2, max2) {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-////////////////////////// TEST AREA //////////////////////////////////
-// const myName = 'adam'
-// const myAge = '42'
-
-// // console.log(`Hello it's me ${myName} and my age is ${myAge}`);
-
-
-// var myBday = "December"
-// var myFood = "cake"
-
-// // console.log(`Hi my favorite food is ${myFood} and my birthday is in ${myBday}`)
-
-// var favPoke = "Typhlosion"
-// var favType = 'Dark'
-
-// console.log(`My favorite pokemon is ${favPoke} and my favorite type is ${favType}`)
